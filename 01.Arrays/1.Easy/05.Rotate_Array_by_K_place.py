@@ -53,7 +53,6 @@ Step 2: Reverse first k elements
 [5,6,7,4,3,2,1]
 Step 3: Reverse remaining elements
 [5,6,7,1,2,3,4]
-"""
 
 def reverse(arr, start, end):
     while start < end:
@@ -68,6 +67,27 @@ def rotate(arr, k):
     reverse(arr, 0, n-1)
     reverse(arr, 0, k-1)
     reverse(arr, k, n-1)
+
+    return arr
+
+arr = [1,2,3,4,5,6,7]
+print(rotate(arr, 3))
+
+"""
+# Left Rotation
+def reverse(arr, start, end):
+    while start < end:
+        arr[start], arr[end] = arr[end], arr[start]
+        start += 1
+        end -= 1
+
+def rotate(arr, k):
+    n = len(arr)
+    k = k % n
+
+    reverse(arr, 0, n-1)
+    reverse(arr, 0, n-k-1)
+    reverse(arr, n-k, n-1)
 
     return arr
 
